@@ -17,7 +17,7 @@
 
 import Util = require('../../util/util');
 import TestConfig = require('../../test.config');
-import { element, by } from 'protractor';
+import { element, by, browser } from 'protractor';
 import { ProcessServicesPage } from './process_services/processServicesPage';
 
 export class NavigationBarPage {
@@ -28,6 +28,7 @@ export class NavigationBarPage {
     processServicesButton = element(by.css('a[data-automation-id="Process Services"]'));
     loginButton = element(by.css('a[data-automation-id="Login"]'));
     trashcanButton = element(by.css('a[data-automation-id="Trashcan"]'));
+    overlayViewerButton = element(by.css('a[data-automation-id="Overlay Viewer"]'));
     userProfileButton = element(by.css('button[data-automation-id="adf-user-profile"]'));
     themeButton = element(by.css('button[data-automation-id="theme menu"]'));
     themeMenuContent = element(by.css('div[class*="mat-menu-panel"]'));
@@ -68,6 +69,12 @@ export class NavigationBarPage {
     clickTrashcanButton() {
         Util.waitUntilElementIsVisible(this.trashcanButton);
         this.trashcanButton.click();
+    }
+
+    clickOverlayViewerButton() {
+        Util.waitUntilElementIsVisible(this.overlayViewerButton);
+        this.overlayViewerButton.click();
+        return this;
     }
 
     clickUserProfile() {
@@ -150,8 +157,8 @@ export class NavigationBarPage {
     };
 
     checkLogoTooltip(logoTooltip) {
-        let logoTooltip = element(by.css('a[title="' + logoTooltip + '"]'));
-        Util.waitUntilElementIsVisible(logoTooltip);
+        let tooltip = element(by.css('a[title="' + logoTooltip + '"]'));
+        Util.waitUntilElementIsVisible(tooltip);
     }
 
     openViewer(nodeId) {
