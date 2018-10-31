@@ -9,5 +9,10 @@
   "ADF_CLOUD_TASK_FILTERS": {
     "MY_TASKS": "My Tasks",
     "COMPLETED_TASKS": "Completed Tasks"
+  },
+  "START-TASK-CLOUD": {
+    "ERROR": {
+      "MESSAGE": "Enter a different value"
+    }
   }
 }
