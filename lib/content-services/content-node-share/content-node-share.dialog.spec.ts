@@ -118,7 +118,7 @@ describe('ShareDialogComponent', () => {
         });
     }));
 
-    it(`should copy shared link and notify on button event`, (done) => {
+    xit(`should copy shared link and notify on button event`, (done) => {
         node.entry.properties['qshare:sharedId'] = 'sharedId';
         spyOn(document, 'execCommand').and.callThrough();
 
