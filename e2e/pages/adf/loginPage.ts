@@ -72,8 +72,11 @@ export class LoginPage {
 
     clearUsername() {
         Util.waitUntilElementIsVisible(this.txtUsername);
-        this.txtUsername.click();
-        return this.txtUsername.clear();
+        this.txtUsername.getAttribute('value').then((value) => {
+            for (let i = value.length; i >= 0; i--) {
+                this.txtUsername.sendKeys(protractor.Key.BACK_SPACE);
+            }
+        });
     }
 
     clearPassword() {
@@ -87,10 +90,12 @@ export class LoginPage {
 
     checkUsernameTooltip() {
         Util.waitUntilElementIsVisible(this.usernameTooltip);
+        return this.usernameTooltip.getText();
     }
 
     checkPasswordTooltip() {
         Util.waitUntilElementIsVisible(this.passwordTooltip);
+        return this.passwordTooltip.getText();
     }
 
     checkLoginError(message) {

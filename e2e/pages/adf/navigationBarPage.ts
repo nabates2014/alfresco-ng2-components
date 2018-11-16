@@ -17,7 +17,7 @@
 
 import Util = require('../../util/util');
 import TestConfig = require('../../test.config');
-import { element, by } from 'protractor';
+import { element, by, browser } from 'protractor';
 import { ProcessServicesPage } from './process_services/processServicesPage';
 import { AppListCloudComponent } from './process_cloud/appListCloudComponent';
 
@@ -157,8 +157,8 @@ export class NavigationBarPage {
         return this.formButton.click();
     };
 
-    checkLogoTooltip(logoTooltip) {
-        let logoTooltip = element(by.css('a[title="' + logoTooltip + '"]'));
+    checkLogoTooltip(logoTooltipName) {
+        let logoTooltip = element(by.css('a[title="' + logoTooltipName + '"]'));
         Util.waitUntilElementIsVisible(logoTooltip);
     }
 

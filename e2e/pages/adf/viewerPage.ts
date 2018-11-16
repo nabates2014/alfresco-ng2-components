@@ -176,7 +176,7 @@ export class ViewerPage {
     checkCurrentThumbnailIsSelected() {
         let selectedThumbnail = element(by.css('adf-pdf-thumb[class="adf-pdf-thumbnails__thumb ng-star-inserted adf-pdf-thumbnails__thumb--selected"] > img'));
         this.pageSelectorInput.getAttribute('value').then(function (pageNumber) {
-            expect('Page ' + pageNumber).toEqual(selectedThumbnail.getAttribute('title'));
+            expect(selectedThumbnail.getAttribute('title')).toEqual('Page ' + pageNumber);
         });
     }
 
@@ -238,7 +238,7 @@ export class ViewerPage {
         Util.waitUntilElementIsVisible(this.zoomInButton);
     }
 
-    checkZoomInButtonIsDisplayed(timeout) {
+    checkZoomInButtonIsDisplayedWithTimeOut(timeout) {
         Util.waitUntilElementIsVisible(this.zoomInButton, timeout);
     }
 
@@ -431,12 +431,6 @@ export class ViewerPage {
     getActiveTab() {
         Util.waitUntilElementIsVisible(this.activeTab);
         return this.activeTab.getText();
-    }
-
-    clickOnVersionsTab() {
-        clickRightChevronToGetToTab('Versions');
-        tabsPage.clickTabByTitle('Versions');
-        return this;
     }
 
     checkUploadVersionsButtonIsDisplayed() {

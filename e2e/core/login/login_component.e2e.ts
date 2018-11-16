@@ -70,14 +70,14 @@ describe('Login component', () => {
         done();
     });
 
-    it('[C260036] Should require username', () => {
+    fit('[C260036] Should require username', () => {
         loginPage.goToLoginPage();
         loginPage.checkUsernameInactive();
         loginPage.checkSignInButtonIsDisabled();
         loginPage.enterUsername('A');
-        loginPage.checkUsernameTooltip(errorMessages.username);
+        expect(loginPage.checkUsernameTooltip()).toBe(errorMessages.username);
         loginPage.clearUsername();
-        loginPage.checkUsernameTooltip(errorMessages.required);
+        expect(loginPage.checkUsernameTooltip()).toBe(errorMessages.required);
         loginPage.checkUsernameHighlighted();
         loginPage.checkSignInButtonIsDisabled();
     });
@@ -89,7 +89,7 @@ describe('Login component', () => {
         loginPage.enterPassword('A');
         loginPage.checkPasswordTooltipIsNotVisible();
         loginPage.clearPassword();
-        loginPage.checkPasswordTooltip(errorMessages.password);
+        expect(loginPage.checkPasswordTooltip()).toBe(errorMessages.password);
         loginPage.checkPasswordHighlighted();
         loginPage.checkSignInButtonIsDisabled();
     });
@@ -98,7 +98,7 @@ describe('Login component', () => {
         loginPage.goToLoginPage();
         loginPage.checkSignInButtonIsDisabled();
         loginPage.enterUsername('A');
-        loginPage.checkUsernameTooltip(errorMessages.username);
+        expect(loginPage.checkUsernameTooltip()).toBe(errorMessages.username);
         loginPage.enterUsername('AB');
         loginPage.checkUsernameTooltipIsNotVisible();
         loginPage.checkSignInButtonIsDisabled();
@@ -111,7 +111,7 @@ describe('Login component', () => {
         loginPage.checkSignInButtonIsDisabled();
         loginPage.enterPassword('a');
         loginPage.checkSignInButtonIsEnabled();
-        loginPage.clearUsername(adminUserModel.id);
+        loginPage.clearUsername();
         loginPage.clearPassword();
     });
 

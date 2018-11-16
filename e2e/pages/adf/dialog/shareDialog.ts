@@ -17,7 +17,6 @@
 
 import { element, by } from 'protractor';
 import Util = require('../../../util/util');
-import moment = require('moment');
 import { FormControllersPage } from '../material/formControllersPage';
 
 export class ShareDialog {
@@ -119,7 +118,6 @@ export class ShareDialog {
     setDefaultDay() {
         const selector = '.mat-datetimepicker-calendar-body-active .mat-datetimepicker-calendar-body-cell-content';
         Util.waitUntilElementIsVisible(this.dayPicker);
-        const tomorrow = moment().add(1, 'day').date();
         let tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000).getDate().toString();
         this.dayPicker.element(by.cssContainingText(selector, tomorrow)).click();
     }
