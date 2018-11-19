@@ -70,7 +70,7 @@ describe('Login component', () => {
         done();
     });
 
-    fit('[C260036] Should require username', () => {
+    it('[C260036] Should require username', () => {
         loginPage.goToLoginPage();
         loginPage.checkUsernameInactive();
         loginPage.checkSignInButtonIsDisabled();
