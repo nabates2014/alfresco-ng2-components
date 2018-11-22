@@ -34,12 +34,14 @@ export class QueryModel {
     }
 }
 export class FilterRepresentationModel {
+    id: string;
     name: string;
     icon: string;
     query: QueryModel;
 
     constructor(obj?: any) {
         if (obj) {
+            this.id = obj.id || null;
             this.name = obj.name || null;
             this.icon = obj.icon || null;
             this.query = new QueryModel(obj.query);
@@ -48,5 +50,15 @@ export class FilterRepresentationModel {
 
     hasFilter() {
         return !!this.query;
+    }
+}
+
+export class FilterType {
+    type: string;
+    value: string;
+
+    constructor(obj?: any) {
+        this.type = obj.type || null;
+        this.value = obj.value || null;
     }
 }
