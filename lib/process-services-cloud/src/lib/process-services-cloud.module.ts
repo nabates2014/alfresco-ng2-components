@@ -11,7 +11,8 @@ import { StartTaskCloudModule } from './start-task-cloud/start-task-cloud.module
         AppListCloudModule,
         TaskListCloudModule,
         TaskCloudModule,
-        ProcessListCloudModule
+        ProcessListCloudModule,
+        StartTaskCloudModule
     ],
     providers: [
         {
@@ -23,7 +24,12 @@ import { StartTaskCloudModule } from './start-task-cloud/start-task-cloud.module
             }
         }
     ],
-    declarations: [],
-    exports: [AppListCloudModule, TaskListCloudModule, TaskCloudModule, ProcessListCloudModule, StartTaskCloudModule]
+    exports: [
+        AppListCloudModule,
+        TaskListCloudModule,
+        TaskCloudModule,
+        ProcessListCloudModule,
+        StartTaskCloudModule
+    ]
 })
 export class ProcessServicesCloudModule { }
