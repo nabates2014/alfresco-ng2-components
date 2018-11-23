@@ -31,6 +31,7 @@ export class SearchFiltersPage {
     checkListFilter = element(by.css('mat-expansion-panel[data-automation-id="expansion-panel-Check List"]'));
     createdDateRangeFilter = element(by.css('mat-expansion-panel[data-automation-id="expansion-panel-Created Date (range)"]'));
     typeFilter = element(by.css('mat-expansion-panel[data-automation-id="expansion-panel-Type"]'));
+    sizeSliderFilter = element(by.css('mat-expansion-panel[data-automation-id="expansion-panel-Content Size"]'));
 
     checkSearchFiltersIsDisplayed() {
         Util.waitUntilElementIsVisible(this.searchFilters);
@@ -54,6 +55,10 @@ export class SearchFiltersPage {
 
     fileTypeCheckListFiltersPage() {
         return this.searchCategoriesPage.checkListFiltersPage(this.fileTypeFilter);
+    }
+
+    sizeSliderFilterPage() {
+        return this.searchCategoriesPage.sliderFilter(this.sizeSliderFilter);
     }
 
     checkFileTypeFilterIsDisplayed() {
@@ -149,4 +154,23 @@ export class SearchFiltersPage {
         return this;
     }
 
+    checkSizeSliderFilterIsDisplayed() {
+        this.searchCategoriesPage.checkFilterIsDisplayed(this.sizeSliderFilter);
+        return this;
+    }
+
+    clickSizeSliderFilterHeader() {
+        this.searchCategoriesPage.clickFilterHeader(this.sizeSliderFilter);
+        return this;
+    }
+
+    checkSizeSliderFilterIsExpanded() {
+        this.searchCategoriesPage.checkFilterIsExpanded(this.sizeSliderFilter);
+        return this;
+    }
+
+    checkSizeSliderFilterIsCollapsed() {
+        this.searchCategoriesPage.checkFilterIsCollapsed(this.sizeSliderFilter);
+        return this;
+    }
 }

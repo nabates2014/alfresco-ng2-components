@@ -123,6 +123,11 @@ export class SearchResultsPage {
         this.sortBy(sortOrder, 'Created');
     }
 
+    sortBySize(sortOrder) {
+        this.sortBy(sortOrder, 'Size');
+        return this;
+    }
+
     sortAndCheckListIsOrderedByName(sortOrder) {
         this.sortByName(sortOrder);
         this.dataTable.waitForTableBody();

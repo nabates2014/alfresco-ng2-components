@@ -16,11 +16,12 @@
  */
 
 import Util = require('../../../../util/util');
-import { element, by } from 'protractor';
+import { by } from 'protractor';
 import { SearchTextPage } from './components/search-text';
 import { SearchCheckListPage } from './components/search-checkList';
 import { SearchRadioPage } from './components/search-radio';
 import { DateRangeFilterPage } from './components/dateRangeFilterPage';
+import { SearchSliderPage } from './components/search-slider.page';
 
 export class SearchCategoriesPage {
 
@@ -38,6 +39,10 @@ export class SearchCategoriesPage {
 
     dateRangeFilter(filter) {
         return new DateRangeFilterPage(filter);
+    }
+
+    sliderFilter(filter) {
+        return new SearchSliderPage(filter);
     }
 
     checkFilterIsDisplayed(filter) {
