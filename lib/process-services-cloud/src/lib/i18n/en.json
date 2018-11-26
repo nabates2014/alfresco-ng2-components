@@ -10,7 +10,7 @@
     "MY_TASKS": "My Tasks",
     "COMPLETED_TASKS": "Completed Tasks"
   },
-  "START-TASK-CLOUD": {
+  "START_TASK_CLOUD": {
     "ERROR": {
       "MESSAGE": "Enter a different value",
       "REQUIRED": "Field required",
